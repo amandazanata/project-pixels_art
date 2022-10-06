@@ -2,63 +2,39 @@ body {
     background-color:lightgrey;
 }
 
-header {
+#title {
     font-family:Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    font-size: 45px;
     font-style: italic;
     text-align: center;
 }
 
-/* #color.palette {
+#color-palette {
+    position: absolute;
+    display: flex;
+    gap: 2px;
+    margin: auto;
     width: 700px; 
-    margin-left: auto;
-    margin-right: auto; 
-} */
+    left: 250px;
+}
 
-#color0 {
+.color {
     display:inline-block;
-    align-content:center;
-    justify-content:space-around;
-    align-items: center;
     padding-bottom: 20px;
     background-color: black;
     border: 1px solid black;
-    width: 65px;
-    height: 65px;
+    width: 40px;
+    height: 40px;
 }
 
 #color1 {
-    display:inline-block;
-    align-content:center;
-    justify-content:space-around;
-    align-items: center;
-    padding-bottom: 20px;
     background-color: purple;
-    border: 1px solid black;
-    width: 65px;
-    height: 65px;
 }
 
 #color2 {
-    display:inline-block;
-    align-content:center;
-    justify-content:space-around;
-    align-items: center;
-    padding-bottom: 20px;
     background-color: fuchsia;
-    border: 1px solid black;
-    width: 65px;
-    height: 65px;
 }
 
 #color3 {
-    display:inline-block;
-    align-content:center;
-    justify-content:space-around;
-    align-items:center;
-    padding-bottom: 20px;
     background-color: blueviolet;
-    border: 1px solid black;
-    width: 65px;
-    height: 65px;
 }

@@ -1,12 +1,16 @@
-window.onload = function () {
-  const capturaElemento = document.getElementById('color-palette');
+/*------------------------Captura Elementos----------------*/
+const paletteColors = document.getElementById('color-palette');
+let numbers = 0;
 
-  for (let index = 0; index < 4; index += 1) {
-    const createDiv = document.createElement('div');
-    createDiv.setAttribute('class', 'color');
-    createDiv.setAttribute('id', 'color' + index);
-    capturaElemento.appendChild(createDiv);
-  }
 
-/* Termina o escopo do window.onload */
+/*------------------------Paleta----------------*/
+for (let index = 0; index < 4; index += 1) {
+  const createDiv = document.createElement('div');
+  createDiv.setAttribute('class', 'color');
+  createDiv.setAttribute('id', 'color' + index);
+  paletteColors.appendChild(createDiv);
+}
+/*------------------------Quadro de Pixels----------------*/
+for (let index = 0; index < numbers; index += 1) {
+  numbers += numbers[index];
 }

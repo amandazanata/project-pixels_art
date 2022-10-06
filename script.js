@@ -3,9 +3,8 @@ window.onload = function () {
 
   for (let index = 0; index < 4; index += 1) {
     const createDiv = document.createElement('div');
-    createDiv.innerHTML = index;
-    createDiv.setAttribute('class', 'color' + index);
-
+    createDiv.setAttribute('class', 'color');
+    createDiv.setAttribute('id', 'color' + index);
     capturaElemento.appendChild(createDiv);
   }
 

@@ -1,12 +1,16 @@
-function generatePalette() {
-  const colorPalette = document.querySelector('#color-palette');
+window.onload = function() {
+
+  const capture = document.querySelector('#color-palette');
 
   for (let index = 0; index < 4; index += 1) {
     const divColors = document.createElement('div');
+    let colorPalette = divColors[index];
+    listColors.innerHTML = colorPalette;
     divColors.classList.add('color');
-    divColors.setAttribute('class', 'color' + index);
+    divColors.id = index;
+    colorPalette.setAttribute('class', 'color', index);
 
-    colorPalette.appendChild(divColors);
+  colorPalette.appendChild(divColors);
   }
-}
-generatePalette();
+
+/* Termina o escopo do window.onload */

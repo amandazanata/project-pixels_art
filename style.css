@@ -2,23 +2,25 @@ body {
     background-color:lightgrey;
 }
 
-#title {
+/*#title {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 45px;
     font-style: italic;
     text-align: center;
 }
 
-#color-palette {
-    position: absolute;
+#palette-container { 
+    height: 100px;
     display: flex;
-    gap: 2px;
-    margin: auto;
-    width: 700px; 
-    left: 250px;
+    flex-direction: row;
+    justify-content: center space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    position: absolute;
 }
 
-.color {
+#first {
     display:inline-block;
     padding-bottom: 20px;
     background-color: black;
@@ -27,14 +29,14 @@ body {
     height: 40px;
 }
 
-#color1 {
+#second {
     background-color: purple;
 }
 
-#color2 {
+#third {
     background-color: fuchsia;
 }
 
-#color3 {
+#fourth {
     background-color: blueviolet;
-}
+} */

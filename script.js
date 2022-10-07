@@ -1,16 +1,23 @@
-/*------------------------Captura Elementos----------------*/
-const paletteColors = document.getElementById('color-palette');
-let numbers = 0;
+/* Variáveis ----------------------------------------------------------------*/
 
 
-/*------------------------Paleta----------------*/
-for (let index = 0; index < 4; index += 1) {
+
+/* Funções ----------------------------------------------------------------*/
+function createTagH1() {
+  const getId = document.getElementById('title');
+  const h1 = document.createElement('h1');
+  h1.innerHTML = 'Paleta de Cores';
+  getId.appendChild(h1);
+};
+
+function createPixel() {
   const createDiv = document.createElement('div');
-  createDiv.setAttribute('class', 'color');
-  createDiv.setAttribute('id', 'color' + index);
-  paletteColors.appendChild(createDiv);
+  createDiv.style.width = '30px';
+  createDiv.style.height = '30px';
+  createDiv.style.borderColor = '1px';
+  return createDiv;
 }
-/*------------------------Quadro de Pixels----------------*/
-for (let index = 0; index < numbers; index += 1) {
-  numbers += numbers[index];
-}
+
+/* Chamada das Funções ----------------------------------------------------------------*/
+createTagH1();
+console.log(createPixel());

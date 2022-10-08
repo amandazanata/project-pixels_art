@@ -1,5 +1,4 @@
-/* Variáveis ----------------------------------------------------------------*/
-
+/* Variáveis Globais ----------------------------------------------------------------*/
 
 
 /* Funções ----------------------------------------------------------------*/
@@ -46,12 +45,19 @@ const pixelate = () => {
   for (let index = 1; index < paint.length; index += 1) {
     paint[index].style.backgroundColor = colorRandom();
   }
-  if (colorRandom <= 255) {
+  if (colorRandom <= 255 && colorRandom === 0) {
     return pixelate * (256 / colorRandom) % 256;
   }
 }
 colorRandom();
 pixelate();
+
+/* Botões  ----------------------------------------------------------------*/
+const getBtnColors = document.getElementById('button-random-color');
+getBtnColors.innerHTML = 'Cores aleatórias';
+getBtnColors.addEventListener('click', pixelate);
+
+
 
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();

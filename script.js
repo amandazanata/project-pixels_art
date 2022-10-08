@@ -4,10 +4,11 @@
 
 /* Funções ----------------------------------------------------------------*/
 function createTagH1() {
-  const getId = document.getElementById('title');
+  const getHeader = document.querySelector('header');
   const h1 = document.createElement('h1');
+  h1.id = 'title';
   h1.innerHTML = 'Paleta de Cores';
-  getId.appendChild(h1);
+  getHeader.appendChild(h1);
 }
 
 function createPixel() {
@@ -21,6 +22,7 @@ function createPixel() {
     createDiv.style.border = 'solid 1px black';
     createDiv.style.marginLeft = '5px';
     createDiv.className = 'color';
+    createDiv.backgroundColor = 'lightgrey';
     createDiv.id = index + 1;
     getIdPalette.appendChild(createDiv);
   }
@@ -37,8 +39,9 @@ function colorRandom() {
 const pixelate = () => {
   const paint = document.getElementsByClassName('color');
   for (let index = 0; index < paint.length; index += 1) {
-    paint[index].style.backgroundColor = colorRandom();
+    paint[index].style.backgroundColor = colorRandom()/* .includes('255') = - 1 */;
   }
+
 }
 
 /* Chamada das Funções ----------------------------------------------------------------*/

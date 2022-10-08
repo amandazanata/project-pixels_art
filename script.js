@@ -51,20 +51,19 @@ const pixelate = () => {
 colorRandom();
 pixelate();
 
-function createBoard(number) {
-  getIdPixBoard.style.display = 'flex';
-
-  for (let index = 0; index < number * number; index += 1) {
-    const createPixels = document.createElement('div');
-    createPixels.style.width = '40px';
-    createPixels.classList.add = 'pixel';
-    createPixels.style.height = '40px';
-    createPixels.style.border = 'solid 1px black';
-    createPixels.style.marginLeft = '5px';
-    createPixels.style.backgroundColor = 'white';
-    createPixels.style.display = 'inlineBlock';
-    getIdPixBoard.appendChild(createPixels);
+function createBoard() {
+  for (let index = 0; index < 5; index += 1) {
+    for (let index2 = 0; index2 < index * 5; index2 += 1); {
+      const createPixels = document.createElement('div');
+      createPixels.style.width = '40px';
+      createPixels.style.height = '40px';
+      createPixels.classList.add('pixel');
+      createPixels.style.backgroundColor = 'white';
+      createPixels.style.border = '1px solid black';
+      getIdPixBoard.appendChild(createPixels);
+    }
   }
+  return getIdPixBoard;
 }
 
 /* Botões  ----------------------------------------------------------------*/
@@ -78,7 +77,7 @@ createPixel();
 firstColorPalette();
 colorRandom();
 pixelate();
-createBoard(5);
+createBoard();
 
 // exemplos de javascript
 //

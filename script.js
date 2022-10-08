@@ -8,6 +8,8 @@ function createTagH1() {
   const h1 = document.createElement('h1');
   h1.id = 'title';
   h1.innerHTML = 'Paleta de Cores';
+  h1.style.justifyContent = 'center';
+  h1.style.display = 'flex';
   getHeader.appendChild(h1);
 }
 
@@ -53,7 +55,7 @@ pixelate();
 
 function createBoard() {
   for (let index = 0; index < 5; index += 1) {
-    for (let index2 = 0; index2 < index * 5; index2 += 1); {
+    for (let index2 = 0; index2 < 5; index2 += 1); {
       const createPixels = document.createElement('div');
       createPixels.style.width = '40px';
       createPixels.style.height = '40px';
@@ -65,6 +67,12 @@ function createBoard() {
   }
   return getIdPixBoard;
 }
+/* function sizeCorrect () {
+  if (getIdPixBoard === 5) {
+    
+  }
+  console.log(null);
+} */
 
 /* Botões  ----------------------------------------------------------------*/
 const getBtnColors = document.getElementById('button-random-color');

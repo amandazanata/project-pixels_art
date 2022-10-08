@@ -28,6 +28,12 @@ function createPixel() {
   return getIdPalette;
 }
 
+const firstColorPalette = () => {
+  const firstColor = document.getElementById('1');
+  firstColor.style.backgroundColor = ('black');
+  console.log(firstColor);
+}
+
 function colorRandom() {
   const liz = Math.floor(Math.random() * 256);
   const manu = Math.floor(Math.random() * 256);
@@ -37,17 +43,20 @@ function colorRandom() {
 
 const pixelate = () => {
   const paint = document.getElementsByClassName('color');
-  for (let index = 0; index < paint.length; index += 1) {
+  for (let index = 1; index < paint.length; index += 1) {
     paint[index].style.backgroundColor = colorRandom();
   }
   if (colorRandom <= 255) {
     return pixelate * (256 / colorRandom) % 256;
   }
 }
+colorRandom();
+pixelate();
 
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();
 createPixel();
+firstColorPalette();
 colorRandom();
 pixelate();
 

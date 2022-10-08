@@ -6,21 +6,17 @@ body {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 45px;
     font-style: italic;
-    text-align: center;
-}
+    text-align: center;*/
 
-#palette-container { 
-    height: 100px;
-    display: flex;
+
+/* .color { 
     flex-direction: row;
-    justify-content: center space-between;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     row-gap: 10px;
-    position: absolute;
-}
+} */
 
-#first {
+/*#first {
     display:inline-block;
     padding-bottom: 20px;
     background-color: black;

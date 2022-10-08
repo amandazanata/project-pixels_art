@@ -22,7 +22,6 @@ function createPixel() {
     createDiv.style.border = 'solid 1px black';
     createDiv.style.marginLeft = '5px';
     createDiv.className = 'color';
-    createDiv.backgroundColor = 'lightgrey';
     createDiv.id = index + 1;
     getIdPalette.appendChild(createDiv);
   }
@@ -39,9 +38,11 @@ function colorRandom() {
 const pixelate = () => {
   const paint = document.getElementsByClassName('color');
   for (let index = 0; index < paint.length; index += 1) {
-    paint[index].style.backgroundColor = colorRandom()/* .includes('255') = - 1 */;
+    paint[index].style.backgroundColor = colorRandom();
   }
-
+  if (colorRandom <= 255) {
+    return pixelate * (256 / colorRandom) % 256;
+  }
 }
 
 /* Chamada das Funções ----------------------------------------------------------------*/

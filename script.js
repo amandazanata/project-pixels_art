@@ -14,7 +14,7 @@ function createPixel() {
   const createDiv = document.createElement('div');
   createDiv.style.width = '30px';
   createDiv.style.height = '30px';
-  createDiv.style.borderColor = '1px';
+  createDiv.style.borderColor = '1px solid black';
   return createDiv;
 }
 

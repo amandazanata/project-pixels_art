@@ -11,13 +11,20 @@ function createTagH1() {
 };
 
 function createPixel() {
-  const createDiv = document.createElement('div');
-  createDiv.style.width = '30px';
-  createDiv.style.height = '30px';
-  createDiv.style.borderColor = '1px solid black';
+  const getIdPalette = document.getElementById('color-palette');
+
+  for (let index = 0; index < 4; index += 1) {
+    const createDiv = document.createElement('div');
+    createDiv.style.width = '50px';
+    createDiv.style.height = '50px';
+    createDiv.style.border = 'solid 1px black';
+    createDiv.classList = 'color';
+    createDiv.id = index + 1;
+    getIdPalette.appendChild(createDiv);
+  }
   return createDiv;
 }
 
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();
-console.log(createPixel());
+createPixel();

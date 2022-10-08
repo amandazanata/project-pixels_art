@@ -51,7 +51,7 @@ const pixelate = () => {
 colorRandom();
 pixelate();
 
-function createBoard(number, board) {
+function createBoard(number) {
   getIdPixBoard.style.display = 'flex';
 
   for (let index = 0; index < number * number; index += 1) {
@@ -62,7 +62,7 @@ function createBoard(number, board) {
     createPixels.style.border = 'solid 1px black';
     createPixels.style.marginLeft = '5px';
     createPixels.style.backgroundColor = 'white';
-    createPixels.style.gridAutoFlow = 5;
+    createPixels.style.display = 'inlineBlock';
     getIdPixBoard.appendChild(createPixels);
   }
 }

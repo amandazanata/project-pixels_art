@@ -1,5 +1,6 @@
 /* Variáveis Globais ----------------------------------------------------------------*/
-
+const getIdPalette = document.getElementById('color-palette');
+const getIdPixBoard = document.getElementById('pixel-board');
 
 /* Funções ----------------------------------------------------------------*/
 function createTagH1() {
@@ -11,7 +12,6 @@ function createTagH1() {
 }
 
 function createPixel() {
-  const getIdPalette = document.getElementById('color-palette');
   getIdPalette.style.display = 'flex';
 
   for (let index = 0; index < 4; index += 1) {
@@ -30,7 +30,6 @@ function createPixel() {
 const firstColorPalette = () => {
   const firstColor = document.getElementById('1');
   firstColor.style.backgroundColor = ('black');
-  console.log(firstColor);
 }
 
 function colorRandom() {
@@ -52,12 +51,26 @@ const pixelate = () => {
 colorRandom();
 pixelate();
 
+function createBoard(number, board) {
+  getIdPixBoard.style.display = 'flex';
+
+  for (let index = 0; index < number * number; index += 1) {
+    const createPixels = document.createElement('div');
+    createPixels.style.width = '40px';
+    createPixels.classList.add = 'pixel';
+    createPixels.style.height = '40px';
+    createPixels.style.border = 'solid 1px black';
+    createPixels.style.marginLeft = '5px';
+    createPixels.style.backgroundColor = 'white';
+    createPixels.style.gridAutoFlow = 5;
+    getIdPixBoard.appendChild(createPixels);
+  }
+}
+
 /* Botões  ----------------------------------------------------------------*/
 const getBtnColors = document.getElementById('button-random-color');
 getBtnColors.innerHTML = 'Cores aleatórias';
 getBtnColors.addEventListener('click', pixelate);
-
-
 
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();
@@ -65,6 +78,7 @@ createPixel();
 firstColorPalette();
 colorRandom();
 pixelate();
+createBoard(5);
 
 // exemplos de javascript
 //

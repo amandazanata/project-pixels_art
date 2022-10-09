@@ -78,16 +78,24 @@ function createBoard(number) {
   }
 }
 
-/* function sizeCorrect () {
-  if (getIdPixBoard === 5) {
-   }
-  console.log(null);
+/* const clearPixelate = () => {
+  const clearPix = document.getElementsByClassName('color');
+  for (let index = 1; index < paint.length; index += 1) {
+    paint[index].style.backgroundColor = colorRandom();
+  }
+  if (colorRandom <= 255 && colorRandom === 0) {
+    return pixelate * (256 / colorRandom) % 256;
+  }
 } */
 
 /* Botões  ----------------------------------------------------------------*/
 const getBtnColors = document.getElementById('button-random-color');
 getBtnColors.innerHTML = 'Cores aleatórias';
 getBtnColors.addEventListener('click', pixelate);
+
+/* const getBtnColors = document.getElementById('clear-board');
+getBtnColors.innerHTML = 'Limpar';
+getBtnColors.addEventListener('click', -------); */
 
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();

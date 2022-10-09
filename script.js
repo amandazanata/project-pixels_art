@@ -22,11 +22,16 @@ function createPixel() {
     createDiv.style.height = '50px';
     createDiv.style.border = 'solid 1px black';
     createDiv.style.marginLeft = '5px';
-    createDiv.className = 'color';
+    createDiv.classList = 'color';
     createDiv.id = index + 1;
     getIdPalette.appendChild(createDiv);
   }
   return getIdPalette;
+}
+
+const selectedClass = () => {
+  const getIdColor = document.getElementById('1');
+  getIdColor.classList.toggle = 'selected';
 }
 
 const firstColorPalette = () => {
@@ -55,22 +60,24 @@ pixelate();
 
 function createBoard() {
   for (let index = 0; index < 5; index += 1) {
-    for (let index2 = 0; index2 < 5; index2 += 1); {
+    for (let index2 = 0; index2 < 1; index2 += 1) {
       const createPixels = document.createElement('div');
       createPixels.style.width = '40px';
       createPixels.style.height = '40px';
       createPixels.classList.add('pixel');
       createPixels.style.backgroundColor = 'white';
       createPixels.style.border = '1px solid black';
+/*       createPixels.style.marginLeft = '540px';
+      createPixels.style.marginRight = '540px'; */
       getIdPixBoard.appendChild(createPixels);
     }
   }
   return getIdPixBoard;
 }
+
 /* function sizeCorrect () {
   if (getIdPixBoard === 5) {
-    
-  }
+   }
   console.log(null);
 } */
 
@@ -82,6 +89,7 @@ getBtnColors.addEventListener('click', pixelate);
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();
 createPixel();
+selectedClass;
 firstColorPalette();
 colorRandom();
 pixelate();

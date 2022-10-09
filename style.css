@@ -25,6 +25,8 @@ header {
 }
 
 #pixel-board{
+    margin-left: 540px;
+    margin-right: 540px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;

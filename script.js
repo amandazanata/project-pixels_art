@@ -22,16 +22,19 @@ function createPixel() {
     createDiv.style.height = '50px';
     createDiv.style.border = 'solid 1px black';
     createDiv.style.marginLeft = '5px';
-    createDiv.classList = 'color';
+    createDiv.style.display = 'inline-block';
+    createDiv.className = 'color';
     createDiv.id = index + 1;
     getIdPalette.appendChild(createDiv);
   }
   return getIdPalette;
 }
 
+// classList está sobrescrevendo a classe color e removendo a cor do segundo pixel da paleta
 const selectedClass = () => {
   const getIdColor = document.getElementById('1');
-  getIdColor.classList.toggle = 'selected';
+  getIdColor.classList = 'selected';
+  console.log(getIdColor);
 }
 
 const firstColorPalette = () => {
@@ -58,21 +61,21 @@ const pixelate = () => {
 colorRandom();
 pixelate();
 
-function createBoard() {
-  for (let index = 0; index < 5; index += 1) {
-    for (let index2 = 0; index2 < 1; index2 += 1) {
-      const createPixels = document.createElement('div');
-      createPixels.style.width = '40px';
-      createPixels.style.height = '40px';
-      createPixels.classList.add('pixel');
-      createPixels.style.backgroundColor = 'white';
-      createPixels.style.border = '1px solid black';
-/*       createPixels.style.marginLeft = '540px';
-      createPixels.style.marginRight = '540px'; */
-      getIdPixBoard.appendChild(createPixels);
+function createBoard(number) {
+  for (let index = 0; index < number; index += 1) {
+    const inPixels = document.createElement('div');
+    for (let index2 = 0; index2 < number; index2 += 1) {
+      const clPixels = document.createElement('div');
+      inPixels.appendChild(clPixels);
+      clPixels.className = ('pixel');
+      clPixels.style.border = '1px solid black';
+      clPixels.style.width = '40px';
+      clPixels.style.height = '40px';
+      clPixels.style.backgroundColor = 'white';
+      clPixels.style.display = 'inline-block';
     }
+    getIdPixBoard.appendChild(inPixels);
   }
-  return getIdPixBoard;
 }
 
 /* function sizeCorrect () {
@@ -89,11 +92,11 @@ getBtnColors.addEventListener('click', pixelate);
 /* Chamada das Funções ----------------------------------------------------------------*/
 createTagH1();
 createPixel();
-selectedClass;
+selectedClass();
 firstColorPalette();
 colorRandom();
 pixelate();
-createBoard();
+createBoard(5);
 
 // exemplos de javascript
 //

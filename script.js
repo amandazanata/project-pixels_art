@@ -70,6 +70,7 @@ function createPalette() {
 // Cria quadro de pixels 5x5
 
 const getIdPixBoard = document.getElementById('pixel-board');
+getIdPixBoard.style.marginTop = '5px';
 
 function createBoard(number) {
   for (let index = 0; index < number; index += 1) {
@@ -105,10 +106,6 @@ function selectColor() {
   });
 }
 
-const getBtnColors = document.getElementById('button-random-color');
-getBtnColors.innerHTML = 'Cores aleatórias';
-getBtnColors.addEventListener('click', pixelate);
-
 /* function pickPixelColor(event) {
   const pixelColor = document.getElementsByClassName('color');
   pixelColor.target.backgroundColor('paint[index]');
@@ -121,33 +118,40 @@ function pixelateBoard() {
   });
 }
 
-// Função e botão limpa quadro de pixels
-
-const clearBoard = () => {
-  const turnWhite = document.getElementsByClassName('pixel');
-  for (let index = 0; index < turnWhite.length; index += 1) {
-    turnWhite[index].style.backgroundColor = 'white';
-  }
-}
-
-let getColorClass2 = document.getElementsByClassName('color');
-
 function recolorify() {
+  let getColorClass = document.getElementsByClassName('color');
   const colored = JSON.parse(localStorage.getItem('colorPalette'));
   for (let index = 0; index < 4; index += 1) {
-    getColorClass2 += colored[index];
+    getColorClass += colored[index];
   }
 }
 
-const getBtnClear = document.getElementById('clear-board');
-getBtnClear.addEventListener('click', clearBoard);
+const getBtnColors = document.getElementById('button-random-color');
+getBtnColors.innerHTML = 'Cores aleatórias';
+getBtnColors.addEventListener('click', pixelate);
+getBtnColors.style.zIndex = 1;
 
 window.addEventListener('click', startBlack, true);
 window.addEventListener('click', selectColor, true);
 window.addEventListener('click', createBoard, true);
 window.addEventListener('click', pixelateBoard, true);
 
-// Chama função
+// Função e botão limpa quadro de pixels
+
+const clearBoard = () => {
+  const turnWhite = document.getElementsByClassName('pixel');
+  for (let index = 0; index < turnWhite.length; index += 1) {
+    turnWhite[index].addEventListener('click', true).style.backgroundColor = 'white';
+  }
+}
+
+const getBtnClear = document.getElementById('clear-board');
+getBtnClear.addEventListener('click', clearBoard);
+getBtnClear.innerHTML = 'Limpar';
+getBtnClear.style.marginLeft = '150px';
+getBtnClear.style.zIndex = 2;
+getBtnClear.style.marginBottom = '10px';
+
 createPalette();
 colorRandom();
 pixelate();
@@ -155,9 +159,5 @@ createBoard(5);
 startBlack();
 selectColor();
 pixelateBoard();
-clearBoard();
 recolorify();
-
-// exemplos de javascript
-
-/* template literals: coloca a variável dentro das chaves >> `rgb(${liz}, ${manu}, ${pedro})`*/
+clearBoard();

@@ -1,13 +1,30 @@
-window.onload = function open() {
-  function createTagH1() {
-    const getHeader = document.querySelector('header');
-    const h1 = document.createElement('h1');
-    h1.id = 'title';
-    h1.innerHTML = 'Paleta de Cores';
-    getHeader.appendChild(h1);
+window.onload = () => {
+  // Guarda paleta de cores gerada, após recarregar página
+  const getColorClass = document.getElementsByClassName('color');
+  const colorBoard = [];
+
+  function colorify() {
+    for (let index = 0; index < 4; index += 1) {
+      colorBoard[index] = getColorClass[index].style.backgroundColor;
+    }
+    localStorage.setItem('colorPalette', JSON.stringify(colorBoard));
   }
-  createTagH1();
-} // Termina window.onload
+  colorify();
+
+  if (localStorage.getItem('colorPalette') === null) {
+    pixelate();
+  }
+}
+// Fim window.onload
+
+function createTagH1() {
+  const getHeader = document.querySelector('header');
+  const h1 = document.createElement('h1');
+  h1.id = 'title';
+  h1.innerHTML = 'Paleta de Cores';
+  getHeader.appendChild(h1);
+}
+createTagH1();
 
 // Gerador de cores aleatórias
 
@@ -18,8 +35,9 @@ function colorRandom() {
   return `rgb(${liz}, ${manu}, ${pedro})`;
 }
 
+let paint = document.getElementsByClassName('color');
+
 const pixelate = () => {
-  const paint = document.getElementsByClassName('color');
   for (let index = 1; index < paint.length; index += 1) {
     paint[index].style.backgroundColor = colorRandom();
   }
@@ -65,17 +83,18 @@ function createBoard(number) {
       clPixels.style.height = '40px';
       clPixels.style.display = 'inline-block';
       clPixels.style.marginLeft = '5px';
+      clPixels.style.backgroundColor = 'white';
     }
     getIdPixBoard.appendChild(inPixels);
   }
-  window.addEventListener('click', createBoard, false);
 }
+
+// Funções event bubbling
 
 function startBlack() {
   const blackBoard = document.getElementsByClassName('color')[0];
   blackBoard.classList.add('selected');
 }
-window.addEventListener('click', startBlack, true);
 
 function selectColor() {
   const selectPalette = document.getElementById('color-palette');
@@ -84,13 +103,16 @@ function selectColor() {
     getSelected.classList.remove('selected');
     pick.target.classList.add('selected');
   });
-  window.addEventListener('click', selectColor, true);
 }
-
 
 const getBtnColors = document.getElementById('button-random-color');
 getBtnColors.innerHTML = 'Cores aleatórias';
 getBtnColors.addEventListener('click', pixelate);
+
+/* function pickPixelColor(event) {
+  const pixelColor = document.getElementsByClassName('color');
+  pixelColor.target.backgroundColor('paint[index]');
+} */
 
 function pixelateBoard() {
   const getPixelate = document.getElementById('pixel-board');
@@ -108,8 +130,22 @@ const clearBoard = () => {
   }
 }
 
+let getColorClass2 = document.getElementsByClassName('color');
+
+function recolorify() {
+  const colored = JSON.parse(localStorage.getItem('colorPalette'));
+  for (let index = 0; index < 4; index += 1) {
+    getColorClass2 += colored[index];
+  }
+}
+
 const getBtnClear = document.getElementById('clear-board');
 getBtnClear.addEventListener('click', clearBoard);
+
+window.addEventListener('click', startBlack, true);
+window.addEventListener('click', selectColor, true);
+window.addEventListener('click', createBoard, true);
+window.addEventListener('click', pixelateBoard, true);
 
 // Chama função
 createPalette();
@@ -120,32 +156,8 @@ startBlack();
 selectColor();
 pixelateBoard();
 clearBoard();
-
-/* const getColorClass = document.getElementsByClassName('color');
-const colorBoard = [];
-
-function colorify() {
-  for (let index = 0; index < 4; index += 1) {
-    colorBoard[index] = getColorClass[index].style.backgroundColor;
-  }
-  localStorage.setItem('colorPalette', JSON.stringify(colorBoard));
-}
-colorify();
-
-function recolorify() {
-  const colored = JSON.parse(localStorage.getItem('colorPalette'));
-  for (let index = 0; index < 4; index += 1); {
-  getColorClass[index].style.backgroundColor = colored[index];
-  }
-}
 recolorify();
-
-if (localStorage.getItem('colorPalette') === null) {
-  pixelate();
-} else {
-  recolorify();
-} */
 
 // exemplos de javascript
 
-/* template literals: coloca a variável dentro das chaves >> `rgb(${liz}, ${manu}, ${pedro})`; */
+/* template literals: coloca a variável dentro das chaves >> `rgb(${liz}, ${manu}, ${pedro})`*/

@@ -7,7 +7,7 @@ window.onload = function open() {
     getHeader.appendChild(h1);
   }
   createTagH1();
-}
+} // Termina window.onload
 
 // Gerador de cores aleatórias
 
@@ -42,30 +42,18 @@ function createPalette() {
     createDiv.style.marginLeft = '5px';
     createDiv.style.display = 'inline-block';
     createDiv.className = 'color';
-    createDiv.style.backgroundColor = pixelate();
     createDiv.id = [index];
     getIdPalette.appendChild(createDiv);
 
-    document.getElementsByClassName('color')[0].classList.add('selected');
     document.getElementById('0').style.backgroundColor = 'black';
   }
 }
-createPalette();
-colorRandom();
-pixelate();
 
 // Botão de cores aleatórias
 
 const getBtnColors = document.getElementById('button-random-color');
 getBtnColors.innerHTML = 'Cores aleatórias';
 getBtnColors.addEventListener('click', pixelate);
-
-/* const blackBoard = () => {
-  const firstColor = 'black';
-  for (let index = 0; index < firstColor.length; index += 1) {
-    firstColor.push(getIdPalette.childNodes[index].style.backgroundColor);
-  }
-} */
 
 // Cria quadro de pixels 5x5
 
@@ -87,7 +75,27 @@ function createBoard(number) {
     getIdPixBoard.appendChild(inPixels);
   }
 }
-createBoard(5);
+
+function startBlack() {
+  const blackBoard = document.getElementsByClassName('color')[0];
+  blackBoard.classList.add('selected');
+}
+
+function selectColor() {
+  const selectPalette = document.getElementById('color-palette');
+  selectPalette.addEventListener('click', (pick) => {
+    const getSelected = document.getElementsByClassName('selected')[0];
+    getSelected.classList.remove('selected');
+    pick.target.classList.add('selected');
+  });
+}
+
+function pixelateBoard() {
+  const getPixelate = document.getElementById('pixel-board');
+  getPixelate.addEventListener('click', (pick2) => {
+    pick2.target.style.backgroundColor = document.getElementsByClassName('selected').style.backgroundColor;
+  });
+}
 
 // Função limpa quadro de pixels
 
@@ -97,13 +105,21 @@ const clearBoard = () => {
     turnWhite[index].style.backgroundColor = 'white';
   }
 }
-clearBoard();
 
 // Botão limpa quadro de pixels
 
 const getBtnClear = document.getElementById('clear-board');
 getBtnClear.addEventListener('click', clearBoard);
-console.log(getBtnClear);
+
+// Chama função
+createPalette();
+colorRandom();
+pixelate();
+createBoard(5);
+startBlack();
+clearBoard();
+selectColor();
+pixelateBoard();
 
 /* const getColorClass = document.getElementsByClassName('color');
 const colorBoard = [];
@@ -129,9 +145,6 @@ if (localStorage.getItem('colorPalette') === null) {
 } else {
   recolorify();
 } */
-
-// Chama função
-
 
 // exemplos de javascript
 

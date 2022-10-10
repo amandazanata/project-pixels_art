@@ -49,12 +49,6 @@ function createPalette() {
   }
 }
 
-// Botão de cores aleatórias
-
-const getBtnColors = document.getElementById('button-random-color');
-getBtnColors.innerHTML = 'Cores aleatórias';
-getBtnColors.addEventListener('click', pixelate);
-
 // Cria quadro de pixels 5x5
 
 const getIdPixBoard = document.getElementById('pixel-board');
@@ -74,12 +68,14 @@ function createBoard(number) {
     }
     getIdPixBoard.appendChild(inPixels);
   }
+  window.addEventListener('click', createBoard, false);
 }
 
 function startBlack() {
   const blackBoard = document.getElementsByClassName('color')[0];
   blackBoard.classList.add('selected');
 }
+window.addEventListener('click', startBlack, true);
 
 function selectColor() {
   const selectPalette = document.getElementById('color-palette');
@@ -88,16 +84,22 @@ function selectColor() {
     getSelected.classList.remove('selected');
     pick.target.classList.add('selected');
   });
+  window.addEventListener('click', selectColor, true);
 }
+
+
+const getBtnColors = document.getElementById('button-random-color');
+getBtnColors.innerHTML = 'Cores aleatórias';
+getBtnColors.addEventListener('click', pixelate);
 
 function pixelateBoard() {
   const getPixelate = document.getElementById('pixel-board');
-  getPixelate.addEventListener('click', (pick2) => {
-    pick2.target.style.backgroundColor = document.getElementsByClassName('selected').style.backgroundColor;
+  getPixelate.addEventListener('click', (pbo) => {
+    pbo.target.style.backgroundColor = document.getElementsByClassName('selected');
   });
 }
 
-// Função limpa quadro de pixels
+// Função e botão limpa quadro de pixels
 
 const clearBoard = () => {
   const turnWhite = document.getElementsByClassName('pixel');
@@ -105,8 +107,6 @@ const clearBoard = () => {
     turnWhite[index].style.backgroundColor = 'white';
   }
 }
-
-// Botão limpa quadro de pixels
 
 const getBtnClear = document.getElementById('clear-board');
 getBtnClear.addEventListener('click', clearBoard);
@@ -117,9 +117,9 @@ colorRandom();
 pixelate();
 createBoard(5);
 startBlack();
-clearBoard();
 selectColor();
 pixelateBoard();
+clearBoard();
 
 /* const getColorClass = document.getElementsByClassName('color');
 const colorBoard = [];

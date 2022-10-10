@@ -7,11 +7,6 @@ window.onload = function open() {
     getHeader.appendChild(h1);
   }
   createTagH1();
-
-  const addClassSelected = document.getElementById('black-color');
-  addClassSelected.style.backgroundColor = 'black';
-  addClassSelected.classList.add('selected');
-  console.log(addClassSelected);
 }
 
 // Gerador de cores aleatórias
@@ -33,12 +28,6 @@ const pixelate = () => {
   }
 }
 
-// Botão de cores aleatórias
-
-const getBtnColors = document.getElementById('button-random-color');
-getBtnColors.innerHTML = 'Cores aleatórias';
-getBtnColors.addEventListener('click', pixelate);
-
 // Cria paleta de cores com 4 pixels
 
 const getIdPalette = document.getElementById('color-palette');
@@ -53,13 +42,23 @@ function createPalette() {
     createDiv.style.marginLeft = '5px';
     createDiv.style.display = 'inline-block';
     createDiv.className = 'color';
+    createDiv.style.backgroundColor = pixelate();
+    createDiv.id = [index];
     getIdPalette.appendChild(createDiv);
+
+    document.getElementsByClassName('color')[0].classList.add('selected');
   }
-  return getIdPalette;
 }
 createPalette();
 colorRandom();
 pixelate();
+
+/* const blackBoard = () => {
+  const firstColor = 'black';
+  for (let index = 0; index < firstColor.length; index += 1) {
+    firstColor.push(getIdPalette.childNodes[index].style.backgroundColor);
+  }
+} */
 
 // Cria quadro de pixels 5x5
 
@@ -81,11 +80,16 @@ function createBoard(number) {
     }
     getIdPixBoard.appendChild(inPixels);
   }
-
 }
 createBoard(5);
 
-const getColorClass = document.getElementsByClassName('color');
+// Botão de cores aleatórias
+
+const getBtnColors = document.getElementById('button-random-color');
+getBtnColors.innerHTML = 'Cores aleatórias';
+getBtnColors.addEventListener('click', pixelate);
+
+/* const getColorClass = document.getElementsByClassName('color');
 const colorBoard = [];
 
 function colorify() {
@@ -108,7 +112,10 @@ if (localStorage.getItem('colorPalette') === null) {
   pixelate();
 } else {
   recolorify();
-}
+} */
+
+// Chama função
+
 
 // exemplos de javascript
 

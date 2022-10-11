@@ -76,15 +76,15 @@ function selectColor() {
   });
 }
 
-// Pinta o quadro
+/* // Pinta o quadro
 function pixelateBoard() {
-  const getPixelate = document.getElementById('pixel-board');
-  getPixelate.addEventListener('click', (pick2) => {
-    pick2.target.style.backgroundColor = document.getElementsByClassName('selected').style.backgroundColor;
-  });
-}
+  let pick;
+  const pickColor = document.querySelector('.selected').style.backgroundColor;
 
-// Guarda paleta de cores gerada após recarregar página
+  pick.target.style.backgroundColor = pickColor;
+} */
+
+/* // Guarda paleta de cores gerada após recarregar página
 const saveColors = () => {
   const getColorClass = document.getElementsByClassName('color');
   const colorSave = [];
@@ -92,7 +92,7 @@ const saveColors = () => {
     colorSave.push(getColorClass[index].style.backgroundColor);
   }
   localStorage.setItem('colorPalette', JSON.stringify(saveColors));
-};
+}; */
 
 // Função e botão limpa quadro de pixels
 const clearBoard = () => {
@@ -116,5 +116,4 @@ createBoard(5);
 startBlack();
 clearBoard();
 selectColor();
-pixelateBoard();
 saveColors();

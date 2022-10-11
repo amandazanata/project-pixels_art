@@ -12,13 +12,11 @@ header {
     gap: 5px;
 }
 
-#button-random-color {
+/* #button-random-color {
     z-index: 1;
-}
+}*/
 #clear-board {
-    z-index: 2;
-    margin-Left: 150px;
-    margin-Bottom: 10px;
+    margin-left: 5px;
 }
 
 

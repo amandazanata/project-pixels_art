@@ -94,17 +94,19 @@ const saveColors = () => {
   localStorage.setItem('colorPalette', JSON.stringify(saveColors));
 };
 
-// Função limpa quadro de pixels
+// Função e botão limpa quadro de pixels
 const clearBoard = () => {
   const turnWhite = document.getElementsByClassName('pixel');
-  for (let index = 0; index < turnWhite.length; index += 1) {
-    turnWhite[index].style.backgroundColor = 'white';
-  }
-};
+  const getBtnClear = document.getElementById('clear-board');
+  const whiteClear = 'white';
 
-// Botão limpa quadro de pixels
-const getBtnClear = document.getElementById('clear-board');
-getBtnClear.addEventListener('click', clearBoard);
+  getBtnClear.addEventListener('click', (clear) => {
+    for (let index = 0; index < turnWhite.length; index += 1) {
+      turnWhite[index].style.backgroundColor = 'white';
+    }
+    clear.target.style.backgroundColor = whiteClear;
+  });
+};
 
 // Chama função
 createPalette();

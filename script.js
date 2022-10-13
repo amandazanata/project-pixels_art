@@ -1,3 +1,8 @@
+const paint = document.getElementsByClassName('color');
+const getIdPalette = document.getElementById('color-palette');
+const turnWhite = document.getElementsByClassName('pixel');
+const getBtnClear = document.getElementById('clear-board');
+
 // Gerador de cores aleatórias
 function colorRandom() {
   const liz = Math.floor(Math.random() * 256);
@@ -6,22 +11,30 @@ function colorRandom() {
   return `rgb(${liz}, ${manu}, ${pedro})`;
 }
 
-const paint = document.getElementsByClassName('color');
-
 function pixelate() {
   for (let index = 1; index < paint.length; index += 1) {
     paint[index].style.backgroundColor = colorRandom();
   }
   if (colorRandom <= 255 && colorRandom === 0) {
-    return pixelate * (256 / colorRandom) % 256;
+    return pixelate * (255 / colorRandom) % 255;
   }
   document.getElementById('0').style.backgroundColor = 'black';
 }
 
+// Função e botão limpa quadro de pixels
+function clearBoard() {
+  getBtnClear.addEventListener('click', () => {
+    for (let index = 0; index < turnWhite.length; index += 1) {
+      turnWhite[index].style.backgroundColor = 'white';
+    }
+  });
+}
+
+// Botões para cores aleatórias e limpar pixel board
+const getBtnColors = document.getElementById('button-random-color');
+getBtnColors.addEventListener('click', pixelate);
+
 // Cria paleta de cores com 4 pixels
-
-const getIdPalette = document.getElementById('color-palette');
-
 function createPalette() {
   for (let index = 0; index < 4; index += 1) {
     const createDiv = document.createElement('div');
@@ -37,7 +50,6 @@ function createPalette() {
 }
 
 // Cria quadro de pixels 5x5
-
 const getIdPixBoard = document.getElementById('pixel-board');
 
 function createBoard(number) {
@@ -58,8 +70,7 @@ function createBoard(number) {
   }
 }
 
-// Funções event bubbling
-
+// Funções para add selected
 function startBlack() {
   const blackBoard = document.getElementsByClassName('color')[0];
   blackBoard.classList.add('selected');
@@ -74,35 +85,21 @@ function selectColor() {
   });
 }
 
-// Função salva paleta localStorage
-const savePalette = () => {
-  localStorage.setItem('colorPalette', pixelate());
-};
-
-const getBtnColors = document.getElementById('button-random-color');
-getBtnColors.innerHTML = 'Cores aleatórias';
-getBtnColors.addEventListener('click', pixelate);
-
-// Função e botão limpa quadro de pixels
-
-const clearBoard = () => {
-  const turnWhite = document.getElementsByClassName('pixel');
+// Função pinta pixel
+function pixelateBoard() {
   for (let index = 0; index < turnWhite.length; index += 1) {
-    if (turnWhite[index] === pixelate()) {
-      turnWhite[index].style.backgroundColor = 'white';
-    }
+    turnWhite[index].addEventListener('click', () => {
+      turnWhite[index].style.backgroundColor = document.querySelector('.selected').style.backgroundColor;
+    });
   }
-};
-
-const getBtnClear = document.getElementById('clear-board');
-getBtnClear.addEventListener('click', clearBoard);
+}
 
 // Chama função
 colorRandom();
 createPalette();
 pixelate();
-savePalette();
 createBoard(5);
 startBlack();
 selectColor();
+pixelateBoard();
 clearBoard();

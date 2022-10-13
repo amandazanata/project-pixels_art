@@ -109,6 +109,7 @@ clearBoard();
 Aulão da 27 - ministrata pelo Aysllan Ferreira;
 Academia de lógica - Jogo da Velha;
 Revisão de seção 5 com o Zezé;
+Nat Ferreira - instrutora incrível da Trybe;
 
 JavaScript Math Object: https://www.w3schools.com/js/js_math.asp;
 JavaScript Random: https://www.w3schools.com/js/js_random.asp;

@@ -103,3 +103,27 @@ startBlack();
 selectColor();
 pixelateBoard();
 clearBoard();
+
+/* Pesquisas para resolução de dúvidas/lógica:
+
+Aulão da 27 - ministrata pelo Aysllan Ferreira;
+Academia de lógica - Jogo da Velha;
+Revisão de seção 5 com o Zezé;
+
+JavaScript Math Object: https://www.w3schools.com/js/js_math.asp;
+JavaScript Random: https://www.w3schools.com/js/js_random.asp;
+
+GitHub : https://github.com/tanvin33/painting-game;
+
+MODAL COM JAVASCRIPT - PROJETO DE HTML, CSS E JAVASCRIPT: Canal Hora de Codar, Matheus Battisti;
+Callback functions: Canal Hora de Codar, Matheus Battisti;
+
+How to Code a Random Color Generator in JavaScript: https://code.tutsplus.com/tutorials/how-to-code-a-random-color-generator-in-javascript--cms-39861
+
+Stackoverflow - links pesquisados:
+. https://stackoverflow.com/questions/2739667/add-another-class-to-a-div;
+. https://stackoverflow.com/questions/55063134/get-random-non-repeated-color;
+. https://stackoverflow.com/questions/1484506/random-color-generator;
+. https://code.tutsplus.com/tutorials/how-to-code-a-random-color-generator-in-javascript--cms-39861;
+
+*/
